@@ -40,6 +40,7 @@ private extension LaunchViewController {
     }
 
     func navigateToOnboardingViewController() {
-        Constants.transitionToLoginScreen()
+//        Constants.transitionToLoginScreen()
+        Constants.transitionToMainScreen()
     }
 }
