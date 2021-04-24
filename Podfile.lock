@@ -1,5 +1,11 @@
 PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - CountryPickerSwift (1.8.2)
+  - CSV.swift (2.4.3)
+  - Disk (0.6.4)
+  - FloatingPanel (1.7.4)
   - IQKeyboardManagerSwift (6.5.6)
   - KWVerificationCodeView (0.4.0)
   - lottie-ios (3.1.9)
@@ -9,7 +15,11 @@ PODS:
   - SkyFloatingLabelTextField (4.0.0)
 
 DEPENDENCIES:
+  - Charts
   - CountryPickerSwift
+  - CSV.swift (~> 2.4.3)
+  - Disk
+  - FloatingPanel (= 1.7.4)
   - IQKeyboardManagerSwift
   - KWVerificationCodeView
   - lottie-ios
@@ -18,7 +28,11 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Charts
     - CountryPickerSwift
+    - CSV.swift
+    - Disk
+    - FloatingPanel
     - IQKeyboardManagerSwift
     - KWVerificationCodeView
     - lottie-ios
@@ -26,13 +40,17 @@ SPEC REPOS:
     - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   CountryPickerSwift: b2cd8b391a0222bd9a97d09ea30426303adac810
+  CSV.swift: d38741b349c067b4a6db42237cb0e2974d21ccac
+  Disk: dcee5c2e98fb72f9a924cde8da8435b08244a80e
+  FloatingPanel: 3c9d0e30fe350e1613157557769d2ec97f76b96b
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   KWVerificationCodeView: 92cca6ad028546d3232fa75cda3a40d00109a1a2
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
 
-PODFILE CHECKSUM: 4a582a352b5b047140e4c706d2ee2532adc2dee3
+PODFILE CHECKSUM: ac2e0e2094aa357c0e9d612a9efbf7f8605cde78
 
 COCOAPODS: 1.10.1
