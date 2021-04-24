@@ -14,10 +14,5 @@ pod 'SkyFloatingLabelTextField'
 pod 'lottie-ios'
 pod 'CountryPickerSwift'
 pod 'NVActivityIndicatorView'
-pod 'Firebase/Core'
-pod 'Firebase/Database'
-pod 'Firebase/Auth'
-pod 'Firebase/Storage'
-pod 'Firebase/Messaging'
 
 end

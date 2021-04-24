@@ -10,11 +10,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 import Foundation
 import UIKit
-import Firebase
-import FirebaseAuth
-import FirebaseStorage
-import FirebaseDatabase
-/* For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 public class User {
 	public var id : String?
