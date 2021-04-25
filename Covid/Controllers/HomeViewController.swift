@@ -127,6 +127,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         self.isActive = true
     }
     
+    @IBAction func onLogoutTap(_ sender: UIButton) {
+        UserDefaults.standard.setValue(nil, forKey: "token")
+        Constants.transitionToLoginScreen()
+    }
+    
+    
     @IBAction func onHelpTap(_ sender: UIButton) {
         sendHelpRequest()
     }

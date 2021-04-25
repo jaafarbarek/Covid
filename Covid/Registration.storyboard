@@ -400,7 +400,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKN-kc-DIh">
-                                <rect key="frame" x="321" y="53.5" width="38" height="33"/>
+                                <rect key="frame" x="287" y="53.5" width="38" height="33"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Help">
                                     <color key="titleColor" red="0.24618276950000001" green="0.246293664" blue="0.25098785759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -409,11 +409,19 @@
                                     <action selector="onHelpTap:" destination="ALG-hz-X5i" eventType="touchUpInside" id="46i-7a-gSV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICi-O5-hiT">
+                                <rect key="frame" x="339" y="59" width="20" height="22"/>
+                                <color key="tintColor" red="0.29825380439999999" green="0.50389051439999999" blue="0.32938537000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="power" catalog="system"/>
+                                <connections>
+                                    <action selector="onLogoutTap:" destination="ALG-hz-X5i" eventType="touchUpInside" id="W4G-Rs-8v5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dyM-2i-Nxu"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
-                            <constraint firstItem="dyM-2i-Nxu" firstAttribute="trailing" secondItem="dKN-kc-DIh" secondAttribute="trailing" constant="16" id="Fpv-Fb-ymS"/>
+                            <constraint firstItem="dyM-2i-Nxu" firstAttribute="trailing" secondItem="dKN-kc-DIh" secondAttribute="trailing" constant="50" id="Fpv-Fb-ymS"/>
                             <constraint firstItem="eMl-BS-L6z" firstAttribute="trailing" secondItem="XAA-aY-nGH" secondAttribute="trailing" id="ItN-z7-gQI"/>
                             <constraint firstItem="dKN-kc-DIh" firstAttribute="centerY" secondItem="Wnf-B9-BKQ" secondAttribute="centerY" id="Klt-Us-hpR"/>
                             <constraint firstItem="eMl-BS-L6z" firstAttribute="leading" secondItem="XAA-aY-nGH" secondAttribute="leading" id="Lj8-7C-FKC"/>
@@ -422,7 +430,9 @@
                             <constraint firstItem="L1K-46-grE" firstAttribute="trailing" secondItem="dyM-2i-Nxu" secondAttribute="trailing" id="TEq-VI-a5g"/>
                             <constraint firstItem="Wnf-B9-BKQ" firstAttribute="leading" secondItem="dyM-2i-Nxu" secondAttribute="leading" constant="16" id="WBi-KI-ypC"/>
                             <constraint firstItem="XAA-aY-nGH" firstAttribute="leading" secondItem="dyM-2i-Nxu" secondAttribute="leading" constant="16" id="g1b-ff-Opj"/>
+                            <constraint firstItem="dyM-2i-Nxu" firstAttribute="trailing" secondItem="ICi-O5-hiT" secondAttribute="trailing" constant="16" id="g90-SY-kMV"/>
                             <constraint firstItem="eMl-BS-L6z" firstAttribute="top" secondItem="XAA-aY-nGH" secondAttribute="bottom" constant="30" id="idV-s8-QGa"/>
+                            <constraint firstItem="ICi-O5-hiT" firstAttribute="centerY" secondItem="dKN-kc-DIh" secondAttribute="centerY" id="pA5-3i-0Pw"/>
                             <constraint firstItem="dyM-2i-Nxu" firstAttribute="trailing" secondItem="XAA-aY-nGH" secondAttribute="trailing" constant="16" id="scx-Sk-Dz1"/>
                             <constraint firstItem="Wnf-B9-BKQ" firstAttribute="top" secondItem="dyM-2i-Nxu" secondAttribute="top" constant="20" id="uf5-Ef-qaU"/>
                             <constraint firstAttribute="bottom" secondItem="L1K-46-grE" secondAttribute="bottom" constant="100" id="zRU-V9-2QU"/>
@@ -1440,6 +1450,7 @@ Deaths</string>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="logo-middle" width="200" height="200"/>
         <image name="mask_icon" width="48" height="48"/>
+        <image name="power" catalog="system" width="128" height="124"/>
         <image name="tablecells" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
