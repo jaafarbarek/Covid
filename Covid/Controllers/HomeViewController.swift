@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, CLLocationManagerDelegate {
 
     
     @IBOutlet weak var statusView: UIView!
@@ -18,7 +19,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var activeView: UIView!
     @IBOutlet weak var activeButton: UIButton!
     
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var locationView: UIView!
     var timer: Timer!
+    
+    let locationManager = CLLocationManager()
+    var currentLocation: CLLocationCoordinate2D?
     
     var isActive = false {
         didSet {
@@ -29,8 +35,22 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.requestAlwaysAuthorization()
+        
         if let isActiveDefault = UserDefaults.standard.value(forKey: "isActive") as? Bool {
             self.isActive = isActiveDefault
+        }
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("All set!")
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
         }
         
         setActiveState()
@@ -55,6 +75,7 @@ class HomeViewController: UIViewController {
 //                updateTimerLabel(futureDate: nextDate)
 //            }
 //        }
+        locationView.isHidden = false
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true)
         
         
@@ -102,11 +123,16 @@ class HomeViewController: UIViewController {
         statusDate.text = "Update today at: \(Date())"
         riskLabel.text = "LOW RISK"
         activeView.isHidden = false
+        locationView.isHidden = true
     }
 
     @IBAction func onActivateButtonTap(_ sender: UIButton) {
         UserDefaults.standard.setValue(true, forKey: "isActive")
         UserDefaults.standard.setValue(Date(), forKey: "activationDate")
+        
+        if let location = currentLocation {
+            UserDefaults.standard.setValue(location, forKey: "location")
+        }
         
         self.isActive = true
     }
@@ -136,5 +162,50 @@ class HomeViewController: UIViewController {
         })
 
         task.resume()
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
+            
+            // CLLocationCoordinate2D; You have to put the coordinate that you want to listen
+            if let current =  UserDefaults.standard.value(forKey: "location") as? CLLocationCoordinate2D {
+                let region = CLCircularRegion(center: current, radius: 50, identifier: "Ur ID")
+                region.notifyOnExit = true
+                region.notifyOnEntry = true
+                manager.startMonitoring(for: region)
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        self.currentLocation = locValue
+    }
+
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        // User has exited from ur region
+        locationLabel.text = "ALERT! Return to your quarantine location!"
+        
+        
+        let content = UNMutableNotificationContent()
+        content.title = "WARNING"
+        content.subtitle = "Return to your quarantine location!"
+        content.sound = UNNotificationSound.default
+
+        // show this notification five seconds from now
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+
+        // choose a random identifier
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+        // add our notification request
+        UNUserNotificationCenter.current().add(request)
+    }
+
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        // User has exited from ur region
+        locationLabel.text = "You're in the correct location"
     }
 }

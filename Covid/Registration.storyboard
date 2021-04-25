@@ -382,6 +382,23 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1K-46-grE">
+                                <rect key="frame" x="0.0" y="487" width="375" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23B-JM-4fj">
+                                        <rect key="frame" x="183.5" y="29.5" width="8" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.24618276950000001" green="0.246293664" blue="0.25098785759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="ANa-34-5FO"/>
+                                    <constraint firstItem="23B-JM-4fj" firstAttribute="centerX" secondItem="L1K-46-grE" secondAttribute="centerX" id="IJa-Lf-biT"/>
+                                    <constraint firstItem="23B-JM-4fj" firstAttribute="centerY" secondItem="L1K-46-grE" secondAttribute="centerY" id="bss-td-H32"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dyM-2i-Nxu"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
@@ -389,17 +406,22 @@
                             <constraint firstItem="eMl-BS-L6z" firstAttribute="trailing" secondItem="XAA-aY-nGH" secondAttribute="trailing" id="ItN-z7-gQI"/>
                             <constraint firstItem="eMl-BS-L6z" firstAttribute="leading" secondItem="XAA-aY-nGH" secondAttribute="leading" id="Lj8-7C-FKC"/>
                             <constraint firstItem="XAA-aY-nGH" firstAttribute="top" secondItem="Wnf-B9-BKQ" secondAttribute="bottom" constant="30" id="LrY-Gr-whN"/>
+                            <constraint firstItem="L1K-46-grE" firstAttribute="leading" secondItem="dyM-2i-Nxu" secondAttribute="leading" id="T5c-iA-3Ht"/>
+                            <constraint firstItem="L1K-46-grE" firstAttribute="trailing" secondItem="dyM-2i-Nxu" secondAttribute="trailing" id="TEq-VI-a5g"/>
                             <constraint firstItem="Wnf-B9-BKQ" firstAttribute="leading" secondItem="dyM-2i-Nxu" secondAttribute="leading" constant="16" id="WBi-KI-ypC"/>
                             <constraint firstItem="XAA-aY-nGH" firstAttribute="leading" secondItem="dyM-2i-Nxu" secondAttribute="leading" constant="16" id="g1b-ff-Opj"/>
                             <constraint firstItem="eMl-BS-L6z" firstAttribute="top" secondItem="XAA-aY-nGH" secondAttribute="bottom" constant="30" id="idV-s8-QGa"/>
                             <constraint firstItem="dyM-2i-Nxu" firstAttribute="trailing" secondItem="XAA-aY-nGH" secondAttribute="trailing" constant="16" id="scx-Sk-Dz1"/>
                             <constraint firstItem="Wnf-B9-BKQ" firstAttribute="top" secondItem="dyM-2i-Nxu" secondAttribute="top" constant="20" id="uf5-Ef-qaU"/>
+                            <constraint firstAttribute="bottom" secondItem="L1K-46-grE" secondAttribute="bottom" constant="100" id="zRU-V9-2QU"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" selectedImage="homekit" id="RRj-yX-dJt"/>
                     <connections>
                         <outlet property="activeButton" destination="CtC-Xh-XwH" id="edX-WY-EQK"/>
                         <outlet property="activeView" destination="eMl-BS-L6z" id="99f-61-Noe"/>
+                        <outlet property="locationLabel" destination="23B-JM-4fj" id="nf6-w4-vrP"/>
+                        <outlet property="locationView" destination="L1K-46-grE" id="jSL-N5-qTM"/>
                         <outlet property="riskLabel" destination="l89-LM-mBu" id="Z4s-XR-N99"/>
                         <outlet property="statusDate" destination="lPg-tu-5bL" id="QlA-Gt-t69"/>
                         <outlet property="statusLabel" destination="N21-Rm-h81" id="2PC-SH-DnI"/>
