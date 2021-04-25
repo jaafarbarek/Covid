@@ -306,6 +306,19 @@
 			path = ChartHelpers;
 			sourceTree = "<group>";
 		};
+		A9756AC42635E3B8004867B2 /* ThirdPartySDK */ = {
+			isa = PBXGroup;
+			children = (
+				A9756A5C2634D1BF004867B2 /* ChartHelpers */,
+				A9756A4D2634D194004867B2 /* ControllerHelpers */,
+				A9756A2D2634D103004867B2 /* service */,
+				A97569F82634D0B4004867B2 /* Helpers */,
+				A97569F02634D051004867B2 /* RegionControllers */,
+				A97569D92634D03B004867B2 /* RegionCells */,
+			);
+			path = ThirdPartySDK;
+			sourceTree = "<group>";
+		};
 		A99BB07B262A40D1004D4F86 = {
 			isa = PBXGroup;
 			children = (
@@ -327,12 +340,7 @@
 		A99BB086262A40D1004D4F86 /* Covid */ = {
 			isa = PBXGroup;
 			children = (
-				A9756A5C2634D1BF004867B2 /* ChartHelpers */,
-				A9756A4D2634D194004867B2 /* ControllerHelpers */,
-				A9756A2D2634D103004867B2 /* service */,
-				A97569F82634D0B4004867B2 /* Helpers */,
-				A97569F02634D051004867B2 /* RegionControllers */,
-				A97569D92634D03B004867B2 /* RegionCells */,
+				A9756AC42635E3B8004867B2 /* ThirdPartySDK */,
 				A97569D426346AF7004867B2 /* Controllers */,
 				A9EC034C262AFAB60005A32A /* User.swift */,
 				A99BB08D262A40D1004D4F86 /* Main.storyboard */,
@@ -718,7 +726,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.covid.Covid;
+				PRODUCT_BUNDLE_IDENTIFIER = com.covid.Covid1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -738,7 +746,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.covid.Covid;
+				PRODUCT_BUNDLE_IDENTIFIER = com.covid.Covid1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

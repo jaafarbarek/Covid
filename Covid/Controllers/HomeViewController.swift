@@ -35,7 +35,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationManager.allowsBackgroundLocationUpdates = true
@@ -65,16 +64,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func onActiveEnabled() {
-//        if let quarintineDate = UserDefaults.standard.value(forKey: "activationDate") as? Date {
-//            var dayComponent    = DateComponents()
-//            dayComponent.day    = 14
-//            let theCalendar     = Calendar.current
-//            let nextDate        = theCalendar.date(byAdding: dayComponent, to: quarintineDate)
-//            print("nextDate : \(nextDate)")
-//            if let nextDate = nextDate {
-//                updateTimerLabel(futureDate: nextDate)
-//            }
-//        }
         locationView.isHidden = false
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true)
         
@@ -82,7 +71,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         statusView.backgroundColor = UIColor(red: 191, green: 0, blue: 67)
         statusLabel.text = "Corona Virus Detected"
         riskLabel.text = "HIGH RISK"
-        
+        locationLabel.text = "You're in the correct location"
         activeView.isHidden = true
     }
     
@@ -93,7 +82,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             dayComponent.day    = 14
             let theCalendar     = Calendar.current
             let nextDate        = theCalendar.date(byAdding: dayComponent, to: quarintineDate)
-            print("nextDate : \(nextDate)")
+//            print("nextDate : \(nextDate)")
             if let nextDate = nextDate {
                 updateTimerLabel(futureDate: nextDate)
             }
@@ -138,6 +127,35 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         self.isActive = true
     }
     
+    @IBAction func onHelpTap(_ sender: UIButton) {
+        sendHelpRequest()
+    }
+    
+    func sendHelpRequest() {
+        guard let token = UserDefaults.standard.value(forKey: "token") as? String else {
+            return
+        }
+        let params = ["help":1] as Dictionary<String, Int>
+
+        var request = URLRequest(url: URL(string: "\(Constants.mainURL)user/help")!)
+        request.httpMethod = "POST"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let session = URLSession.shared
+        let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
+            print(response)
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, AnyObject>
+                print(json)
+            } catch {
+                print("error")
+            }
+        })
+
+        task.resume()
+    }
     
     func sendActivateRequest(location: CLLocationCoordinate2D) {
         guard let token = UserDefaults.standard.value(forKey: "token") as? String else {
@@ -153,7 +171,35 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
 
         let session = URLSession.shared
         let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
-            print(response!)
+            print(response)
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, AnyObject>
+                print(json)
+            } catch {
+                print("error")
+            }
+        })
+
+        task.resume()
+    }
+    
+    func sendAlertRequest(location: CLLocationCoordinate2D, alert: Int) {
+        guard let token = UserDefaults.standard.value(forKey: "token") as? String else {
+            return
+        }
+        let params = ["location":"\(location.latitude),\(location.longitude)",
+                      "alert": alert,
+                      "date": "\(Date())"] as Dictionary<String, Any>
+
+        var request = URLRequest(url: URL(string: "\(Constants.mainURL)user/alert")!)
+        request.httpMethod = "POST"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let session = URLSession.shared
+        let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
+            print(response)
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, AnyObject>
                 print(json)
@@ -203,10 +249,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
 
         // add our notification request
         UNUserNotificationCenter.current().add(request)
+        
+        sendAlertRequest(location: self.currentLocation ?? CLLocationCoordinate2D(), alert: 1)
     }
 
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         // User has exited from ur region
         locationLabel.text = "You're in the correct location"
+        
+        sendAlertRequest(location: self.currentLocation ?? CLLocationCoordinate2D(), alert: 0)
     }
 }

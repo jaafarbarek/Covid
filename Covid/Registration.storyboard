@@ -399,11 +399,23 @@
                                     <constraint firstItem="23B-JM-4fj" firstAttribute="centerY" secondItem="L1K-46-grE" secondAttribute="centerY" id="bss-td-H32"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKN-kc-DIh">
+                                <rect key="frame" x="321" y="53.5" width="38" height="33"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Help">
+                                    <color key="titleColor" red="0.24618276950000001" green="0.246293664" blue="0.25098785759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onHelpTap:" destination="ALG-hz-X5i" eventType="touchUpInside" id="46i-7a-gSV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dyM-2i-Nxu"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
+                            <constraint firstItem="dyM-2i-Nxu" firstAttribute="trailing" secondItem="dKN-kc-DIh" secondAttribute="trailing" constant="16" id="Fpv-Fb-ymS"/>
                             <constraint firstItem="eMl-BS-L6z" firstAttribute="trailing" secondItem="XAA-aY-nGH" secondAttribute="trailing" id="ItN-z7-gQI"/>
+                            <constraint firstItem="dKN-kc-DIh" firstAttribute="centerY" secondItem="Wnf-B9-BKQ" secondAttribute="centerY" id="Klt-Us-hpR"/>
                             <constraint firstItem="eMl-BS-L6z" firstAttribute="leading" secondItem="XAA-aY-nGH" secondAttribute="leading" id="Lj8-7C-FKC"/>
                             <constraint firstItem="XAA-aY-nGH" firstAttribute="top" secondItem="Wnf-B9-BKQ" secondAttribute="bottom" constant="30" id="LrY-Gr-whN"/>
                             <constraint firstItem="L1K-46-grE" firstAttribute="leading" secondItem="dyM-2i-Nxu" secondAttribute="leading" id="T5c-iA-3Ht"/>

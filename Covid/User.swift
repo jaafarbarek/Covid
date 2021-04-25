@@ -17,17 +17,6 @@ public class User {
 	public var name : String?
 	public var email : String?
 	public var phonenumber : Int?
-	public var remembertoken : String?
-	public var firebasetoken : String?
-	public var chatid : String?
-	public var isverified : Bool?
-	public var verificationcode : String?
-	public var usertype : String?
-	public var createdAt : String?
-	public var updatedAt : String?
-	public var deletedAt : String?
-
-    public var profilePic = UIImage()
 
     public class func modelsFromDictionaryArray(array:NSArray) -> [User]
     {
@@ -55,15 +44,6 @@ public class User {
 		name = dictionary["name"] as? String
 		email = dictionary["email"] as? String
 		phonenumber = dictionary["phonenumber"] as? Int
-		remembertoken = dictionary["remembertoken"] as? String
-		firebasetoken = dictionary["firebasetoken"] as? String
-		chatid = dictionary["chatid"] as? String
-		isverified = dictionary["isverified"] as? Bool
-		verificationcode = dictionary["verificationcode"] as? String
-		usertype = dictionary["usertype"] as? String
-		createdAt = dictionary["createdAt"] as? String
-		updatedAt = dictionary["updatedAt"] as? String
-		deletedAt = dictionary["deletedAt"] as? String
 
 	}
 
@@ -81,15 +61,6 @@ public class User {
 		dictionary.setValue(self.name, forKey: "name")
 		dictionary.setValue(self.email, forKey: "email")
 		dictionary.setValue(self.phonenumber, forKey: "phonenumber")
-		dictionary.setValue(self.remembertoken, forKey: "remembertoken")
-		dictionary.setValue(self.firebasetoken, forKey: "firebasetoken")
-		dictionary.setValue(self.chatid, forKey: "chatid")
-		dictionary.setValue(self.isverified, forKey: "isverified")
-		dictionary.setValue(self.verificationcode, forKey: "verificationcode")
-		dictionary.setValue(self.usertype, forKey: "usertype")
-		dictionary.setValue(self.createdAt, forKey: "createdAt")
-		dictionary.setValue(self.updatedAt, forKey: "updatedAt")
-		dictionary.setValue(self.deletedAt, forKey: "deletedAt")
 
 
 		return dictionary
@@ -240,10 +211,9 @@ public class User {
     
     
     //MARK: Inits
-    init(name: String, email: String, id: String, profilePic: UIImage) {
+    init(name: String, email: String, id: String) {
         self.name = name
         self.email = email
         self.id = id
-        self.profilePic = profilePic
     }
 }
