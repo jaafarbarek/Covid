@@ -132,17 +132,18 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         if let location = currentLocation {
             UserDefaults.standard.setValue(location, forKey: "location")
+            sendActivateRequest(location: location)
         }
         
         self.isActive = true
     }
     
     
-    func sendActivateRequest() {
+    func sendActivateRequest(location: CLLocationCoordinate2D) {
         guard let token = UserDefaults.standard.value(forKey: "token") as? String else {
             return
         }
-        let params = ["location":"test test test"] as Dictionary<String, String>
+        let params = ["location":"\(location.latitude),\(location.longitude)"] as Dictionary<String, String>
 
         var request = URLRequest(url: URL(string: "\(Constants.mainURL)user/activate")!)
         request.httpMethod = "POST"
