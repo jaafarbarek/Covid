@@ -24,7 +24,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     var timer: Timer!
     
     let locationManager = CLLocationManager()
-    var currentLocation: CLLocationCoordinate2D?
+    var currentLocation: CLLocationCoordinate2D? {
+        didSet {
+            if let location = self.currentLocation {
+//                UserDefaults.standard.setValue(location, forKey: "location")
+                sendActivateRequest(location: location)
+            }
+        }
+    }
     
     var isActive = false {
         didSet {
@@ -120,7 +127,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         UserDefaults.standard.setValue(Date(), forKey: "activationDate")
         
         if let location = currentLocation {
-            UserDefaults.standard.setValue(location, forKey: "location")
+//            UserDefaults.standard.setValue(location, forKey: "location")
             sendActivateRequest(location: location)
         }
         
@@ -129,6 +136,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func onLogoutTap(_ sender: UIButton) {
         UserDefaults.standard.setValue(nil, forKey: "token")
+        UserDefaults.standard.setValue(nil, forKey: "isActive")
+        UserDefaults.standard.setValue(nil, forKey: "activationDate")
+        
+        UserDefaults.standard.setValue(nil, forKey: "location")
         Constants.transitionToLoginScreen()
     }
     
@@ -220,6 +231,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
+            if let location = manager.location?.coordinate {
+                self.currentLocation = location
+            }
             
             // CLLocationCoordinate2D; You have to put the coordinate that you want to listen
             if let current =  UserDefaults.standard.value(forKey: "location") as? CLLocationCoordinate2D {
