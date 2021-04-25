@@ -129,6 +129,18 @@ public class User {
             do{
                 if status==200{
                     
+                    do {
+                        // make sure this JSON is in the format we expect
+                        if let data = data, let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                            // try to read out a string array
+                            if let token = json["access_token"] as? String {
+                                UserDefaults.standard.setValue(token, forKey: "token")
+                            }
+                        }
+                    } catch let error as NSError {
+                        print("Failed to load: \(error.localizedDescription)")
+                    }
+                    
                     completion(.success)
                     
 
@@ -181,6 +193,21 @@ public class User {
             
             do{
                 if status==200{
+                    
+//                    UserDefaults.standard.value(forKey: "token")
+                    
+                    
+                    do {
+                        // make sure this JSON is in the format we expect
+                        if let data = data, let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                            // try to read out a string array
+                            if let token = json["access_token"] as? String {
+                                UserDefaults.standard.setValue(token, forKey: "token")
+                            }
+                        }
+                    } catch let error as NSError {
+                        print("Failed to load: \(error.localizedDescription)")
+                    }
                     
                     completion(NetworkStatus.success)
                 }

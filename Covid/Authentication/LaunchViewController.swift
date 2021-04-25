@@ -40,7 +40,11 @@ private extension LaunchViewController {
     }
 
     func navigateToOnboardingViewController() {
-//        Constants.transitionToLoginScreen()
+        guard let token = UserDefaults.standard.value(forKey: "token") as? String else {
+            Constants.transitionToLoginScreen()
+            return
+        }
+
         Constants.transitionToMainScreen()
     }
 }
