@@ -79,12 +79,12 @@
 		A99BB101262AF8A2004D4F86 /* RegisterWithMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99BB0FB262AF8A2004D4F86 /* RegisterWithMailViewController.swift */; };
 		A99BB102262AF8A2004D4F86 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99BB0FC262AF8A2004D4F86 /* LaunchViewController.swift */; };
 		A99BB108262AF909004D4F86 /* 17977-corona-virus.json in Resources */ = {isa = PBXBuildFile; fileRef = A99BB107262AF909004D4F86 /* 17977-corona-virus.json */; };
-		A9EC0349262AFAA60005A32A /* CustomDesignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EC0348262AFAA60005A32A /* CustomDesignTextField.swift */; };
-		A9EC034F262AFAB60005A32A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EC034C262AFAB60005A32A /* User.swift */; };
+		A9BB2A4E2638930F001AFCD7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BB2A4D2638930F001AFCD7 /* User.swift */; };
+		A9BB2A532638942C001AFCD7 /* UIView+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BB2A522638942C001AFCD7 /* UIView+cornerRadius.swift */; };
+		A9BB2A5726389444001AFCD7 /* CustomDesignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BB2A5626389444001AFCD7 /* CustomDesignTextField.swift */; };
 		A9EC036C262AFBE60005A32A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EC036B262AFBE60005A32A /* NetworkManager.swift */; };
 		A9EC0388262AFD0E0005A32A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EC0387262AFD0E0005A32A /* Constants.swift */; };
 		A9EC038D262AFD310005A32A /* UIApplication+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EC038A262AFD310005A32A /* UIApplication+extension.swift */; };
-		A9EC038E262AFD310005A32A /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EC038B262AFD310005A32A /* UIView+CornerRadius.swift */; };
 		A9EC038F262AFD310005A32A /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EC038C262AFD310005A32A /* extensions.swift */; };
 		BDA25BA2BD474A0253055A0F /* Pods_Covid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71381A39B979E0CEBF1147C5 /* Pods_Covid.framework */; };
 /* End PBXBuildFile section */
@@ -167,12 +167,12 @@
 		A99BB0FB262AF8A2004D4F86 /* RegisterWithMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterWithMailViewController.swift; sourceTree = "<group>"; };
 		A99BB0FC262AF8A2004D4F86 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		A99BB107262AF909004D4F86 /* 17977-corona-virus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "17977-corona-virus.json"; sourceTree = "<group>"; };
-		A9EC0348262AFAA60005A32A /* CustomDesignTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDesignTextField.swift; sourceTree = "<group>"; };
-		A9EC034C262AFAB60005A32A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A9BB2A4D2638930F001AFCD7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A9BB2A522638942C001AFCD7 /* UIView+cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+cornerRadius.swift"; sourceTree = "<group>"; };
+		A9BB2A5626389444001AFCD7 /* CustomDesignTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDesignTextField.swift; sourceTree = "<group>"; };
 		A9EC036B262AFBE60005A32A /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A9EC0387262AFD0E0005A32A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A9EC038A262AFD310005A32A /* UIApplication+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+extension.swift"; sourceTree = "<group>"; };
-		A9EC038B262AFD310005A32A /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 		A9EC038C262AFD310005A32A /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -340,20 +340,14 @@
 		A99BB086262A40D1004D4F86 /* Covid */ = {
 			isa = PBXGroup;
 			children = (
-				A9756AC42635E3B8004867B2 /* ThirdPartySDK */,
+				A9BB2A5C26389499001AFCD7 /* Storboards */,
+				A9BB2A5B2638947F001AFCD7 /* Resources */,
+				A9BB2A4B263891BA001AFCD7 /* Models */,
+				A9BB2A5026389407001AFCD7 /* Views */,
 				A97569D426346AF7004867B2 /* Controllers */,
-				A9EC034C262AFAB60005A32A /* User.swift */,
-				A99BB08D262A40D1004D4F86 /* Main.storyboard */,
-				A99BB0F5262AF871004D4F86 /* Registration.storyboard */,
-				A9EC0348262AFAA60005A32A /* CustomDesignTextField.swift */,
-				A9EC038C262AFD310005A32A /* extensions.swift */,
-				A9EC038A262AFD310005A32A /* UIApplication+extension.swift */,
-				A9EC038B262AFD310005A32A /* UIView+CornerRadius.swift */,
-				A9EC0387262AFD0E0005A32A /* Constants.swift */,
-				A9EC036B262AFBE60005A32A /* NetworkManager.swift */,
-				A99BB107262AF909004D4F86 /* 17977-corona-virus.json */,
-				A99BB090262A40DC004D4F86 /* Assets.xcassets */,
-				A99BB092262A40DC004D4F86 /* LaunchScreen.storyboard */,
+				A9756AC42635E3B8004867B2 /* ThirdPartySDK */,
+				A9BB2A5926389454001AFCD7 /* Constants */,
+				A9BB2A5A2638945E001AFCD7 /* Networking */,
 				A99BB0F8262AF892004D4F86 /* Authentication */,
 				A99BB087262A40D1004D4F86 /* AppDelegate.swift */,
 				A99BB089262A40D1004D4F86 /* SceneDelegate.swift */,
@@ -371,6 +365,60 @@
 				A99BB0FB262AF8A2004D4F86 /* RegisterWithMailViewController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		A9BB2A4B263891BA001AFCD7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A9BB2A4D2638930F001AFCD7 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A9BB2A5026389407001AFCD7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A9EC038A262AFD310005A32A /* UIApplication+extension.swift */,
+				A9BB2A522638942C001AFCD7 /* UIView+cornerRadius.swift */,
+				A9BB2A5626389444001AFCD7 /* CustomDesignTextField.swift */,
+				A9EC038C262AFD310005A32A /* extensions.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A9BB2A5926389454001AFCD7 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A9EC0387262AFD0E0005A32A /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A9BB2A5A2638945E001AFCD7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A9EC036B262AFBE60005A32A /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A9BB2A5B2638947F001AFCD7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A99BB107262AF909004D4F86 /* 17977-corona-virus.json */,
+				A99BB090262A40DC004D4F86 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A9BB2A5C26389499001AFCD7 /* Storboards */ = {
+			isa = PBXGroup;
+			children = (
+				A99BB08D262A40D1004D4F86 /* Main.storyboard */,
+				A99BB0F5262AF871004D4F86 /* Registration.storyboard */,
+				A99BB092262A40DC004D4F86 /* LaunchScreen.storyboard */,
+			);
+			path = Storboards;
 			sourceTree = "<group>";
 		};
 		E510487088A5DA16898B2538 /* Pods */ = {
@@ -512,7 +560,6 @@
 				A9EC036C262AFBE60005A32A /* NetworkManager.swift in Sources */,
 				A9756A3B2634D10E004867B2 /* BMSGPKDataService.swift in Sources */,
 				A9756A0A2634D0E2004867B2 /* AppMenu.swift in Sources */,
-				A9EC0349262AFAA60005A32A /* CustomDesignTextField.swift in Sources */,
 				A99BB101262AF8A2004D4F86 /* RegisterWithMailViewController.swift in Sources */,
 				A9756A262634D0FF004867B2 /* MenuController.swift in Sources */,
 				A9756A232634D0FF004867B2 /* ShareManager.swift in Sources */,
@@ -539,7 +586,6 @@
 				A9756A2A2634D0FF004867B2 /* Menu.swift in Sources */,
 				A9756A6F2634D1E1004867B2 /* BaseChartView.swift in Sources */,
 				A9756A722634D1E1004867B2 /* HistoryChartView.swift in Sources */,
-				A9EC038E262AFD310005A32A /* UIView+CornerRadius.swift in Sources */,
 				A9756A382634D10E004867B2 /* JHUWebDataService.swift in Sources */,
 				A9756A362634D10E004867B2 /* JHURepoDataService.swift in Sources */,
 				A9756A6D2634D1E1004867B2 /* TrendlineChartView.swift in Sources */,
@@ -547,6 +593,7 @@
 				A9756A242634D0FF004867B2 /* MenuSegue.swift in Sources */,
 				A9756A572634D1AA004867B2 /* DetailsView.swift in Sources */,
 				A9756A6B2634D1E1004867B2 /* RegionChartView.swift in Sources */,
+				A9BB2A532638942C001AFCD7 /* UIView+cornerRadius.swift in Sources */,
 				A9756A212634D0FF004867B2 /* ContextMenu.swift in Sources */,
 				A9756A392634D10E004867B2 /* DataService.swift in Sources */,
 				A9EC0388262AFD0E0005A32A /* Constants.swift in Sources */,
@@ -560,6 +607,7 @@
 				A99BB08A262A40D1004D4F86 /* SceneDelegate.swift in Sources */,
 				A9756A732634D1E1004867B2 /* PercentValueFormatter.swift in Sources */,
 				A9756A702634D1E1004867B2 /* BalloonMarker.swift in Sources */,
+				A9BB2A4E2638930F001AFCD7 /* User.swift in Sources */,
 				A97569EC2634D04B004867B2 /* RegionDataCell.swift in Sources */,
 				A97569EF2634D04B004867B2 /* UpdateTimeCell.swift in Sources */,
 				A97569ED2634D04B004867B2 /* StatsCell.swift in Sources */,
@@ -567,8 +615,8 @@
 				A97569D626346B0A004867B2 /* HomeViewController.swift in Sources */,
 				A9756A0B2634D0E2004867B2 /* AppToolbar.swift in Sources */,
 				A9756A272634D0FF004867B2 /* TimeSeries.swift in Sources */,
+				A9BB2A5726389444001AFCD7 /* CustomDesignTextField.swift in Sources */,
 				A9756A2B2634D0FF004867B2 /* Change.swift in Sources */,
-				A9EC034F262AFAB60005A32A /* User.swift in Sources */,
 				A97569FE2634D0C5004867B2 /* ISO-Country.swift in Sources */,
 				A97569FC2634D0C5004867B2 /* Strings.swift in Sources */,
 				A9756A052634D0D1004867B2 /* Extensions.swift in Sources */,

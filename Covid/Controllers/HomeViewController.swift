@@ -27,7 +27,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     var currentLocation: CLLocationCoordinate2D? {
         didSet {
             if let location = self.currentLocation {
-//                UserDefaults.standard.setValue(location, forKey: "location")
                 sendActivateRequest(location: location)
             }
         }

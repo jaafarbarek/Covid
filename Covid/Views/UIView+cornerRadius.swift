@@ -1,9 +1,8 @@
 //
-//  UIView+CornerRadius.swift
-//  Jini
+//  UIView+cornerRadius.swift
+//  Covid
 //
-//  Created by Jaafar Barek on 4/8/18.
-//  Copyright © 2018 Jaafar Barek. All rights reserved.
+//  Created by Jaafar Barek on 27/04/2021.
 //
 
 import UIKit

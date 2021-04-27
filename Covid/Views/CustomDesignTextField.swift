@@ -1,9 +1,8 @@
 //
 //  CustomDesignTextField.swift
-//  Lille
+//  Covid
 //
-//  Created by Apple on 1/17/17.
-//  Copyright © 2017 iflat-apps. All rights reserved.
+//  Created by Jaafar Barek on 27/04/2021.
 //
 
 import UIKit
