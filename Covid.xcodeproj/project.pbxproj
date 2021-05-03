@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A94042172640885D009D2393 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94042162640885D009D2393 /* ProfileViewController.swift */; };
+		A940421A26408DFC009D2393 /* Vaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A940421926408DFC009D2393 /* Vaccine.swift */; };
+		A940421D26408F5D009D2393 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A940421C26408F5D009D2393 /* TestModel.swift */; };
+		A940422226409581009D2393 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A940422026409581009D2393 /* ProfileTableViewCell.swift */; };
+		A940422326409581009D2393 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A940422126409581009D2393 /* ProfileTableViewCell.xib */; };
 		A97569D626346B0A004867B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97569D526346B0A004867B2 /* HomeViewController.swift */; };
 		A97569EA2634D04B004867B2 /* AuthorInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97569E42634D04A004867B2 /* AuthorInfoCell.swift */; };
 		A97569EB2634D04B004867B2 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97569E52634D04A004867B2 /* ChartCell.swift */; };
@@ -93,6 +98,11 @@
 		14E64D439E668CA8BB360329 /* Pods-Covid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid.debug.xcconfig"; path = "Target Support Files/Pods-Covid/Pods-Covid.debug.xcconfig"; sourceTree = "<group>"; };
 		71381A39B979E0CEBF1147C5 /* Pods_Covid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8558DEEEF91900750DF1D6A4 /* Pods-Covid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid.release.xcconfig"; path = "Target Support Files/Pods-Covid/Pods-Covid.release.xcconfig"; sourceTree = "<group>"; };
+		A94042162640885D009D2393 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A940421926408DFC009D2393 /* Vaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccine.swift; sourceTree = "<group>"; };
+		A940421C26408F5D009D2393 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		A940422026409581009D2393 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		A940422126409581009D2393 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		A97569D526346B0A004867B2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A97569E42634D04A004867B2 /* AuthorInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorInfoCell.swift; sourceTree = "<group>"; };
 		A97569E52634D04A004867B2 /* ChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
@@ -196,10 +206,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A940421F2640956E009D2393 /* ProfileCells */ = {
+			isa = PBXGroup;
+			children = (
+				A940422026409581009D2393 /* ProfileTableViewCell.swift */,
+				A940422126409581009D2393 /* ProfileTableViewCell.xib */,
+			);
+			path = ProfileCells;
+			sourceTree = "<group>";
+		};
 		A97569D426346AF7004867B2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				A97569D526346B0A004867B2 /* HomeViewController.swift */,
+				A94042162640885D009D2393 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -371,6 +391,8 @@
 			isa = PBXGroup;
 			children = (
 				A9BB2A4D2638930F001AFCD7 /* User.swift */,
+				A940421926408DFC009D2393 /* Vaccine.swift */,
+				A940421C26408F5D009D2393 /* TestModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -378,6 +400,7 @@
 		A9BB2A5026389407001AFCD7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A940421F2640956E009D2393 /* ProfileCells */,
 				A9EC038A262AFD310005A32A /* UIApplication+extension.swift */,
 				A9BB2A522638942C001AFCD7 /* UIView+cornerRadius.swift */,
 				A9BB2A5626389444001AFCD7 /* CustomDesignTextField.swift */,
@@ -492,6 +515,7 @@
 				A99BB094262A40DC004D4F86 /* LaunchScreen.storyboard in Resources */,
 				A9756AB52634E1B1004867B2 /* Localizable.strings in Resources */,
 				A99BB0F6262AF871004D4F86 /* Registration.storyboard in Resources */,
+				A940422326409581009D2393 /* ProfileTableViewCell.xib in Resources */,
 				A99BB091262A40DC004D4F86 /* Assets.xcassets in Resources */,
 				A99BB08F262A40D1004D4F86 /* Main.storyboard in Resources */,
 				A99BB108262AF909004D4F86 /* 17977-corona-virus.json in Resources */,
@@ -581,9 +605,13 @@
 				A9756A1F2634D0FF004867B2 /* Report.swift in Sources */,
 				A9756A3E2634D111004867B2 /* DataManager.swift in Sources */,
 				A97569EA2634D04B004867B2 /* AuthorInfoCell.swift in Sources */,
+				A94042172640885D009D2393 /* ProfileViewController.swift in Sources */,
 				A9756A372634D10E004867B2 /* BaseDataService.swift in Sources */,
+				A940422226409581009D2393 /* ProfileTableViewCell.swift in Sources */,
+				A940421A26408DFC009D2393 /* Vaccine.swift in Sources */,
 				A9756A5A2634D1B1004867B2 /* ChartController.swift in Sources */,
 				A9756A2A2634D0FF004867B2 /* Menu.swift in Sources */,
+				A940421D26408F5D009D2393 /* TestModel.swift in Sources */,
 				A9756A6F2634D1E1004867B2 /* BaseChartView.swift in Sources */,
 				A9756A722634D1E1004867B2 /* HistoryChartView.swift in Sources */,
 				A9756A382634D10E004867B2 /* JHUWebDataService.swift in Sources */,

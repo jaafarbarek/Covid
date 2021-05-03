@@ -88,7 +88,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             dayComponent.day    = 14
             let theCalendar     = Calendar.current
             let nextDate        = theCalendar.date(byAdding: dayComponent, to: quarintineDate)
-//            print("nextDate : \(nextDate)")
             if let nextDate = nextDate {
                 updateTimerLabel(futureDate: nextDate)
             }
@@ -107,8 +106,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let minutes = String(describing: components.minute ?? 0)
         let seconds = String(describing: components.second ?? 0)
 
-//        print(components) // day: 723942 hour: 23 minute: 56 second: 0 isLeapMonth: false
-
         self.statusDate.text = "Quarantine till \(days) days, \(hours)h, \(minutes)m, \(seconds)s"
     }
     
@@ -126,22 +123,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         UserDefaults.standard.setValue(Date(), forKey: "activationDate")
         
         if let location = currentLocation {
-//            UserDefaults.standard.setValue(location, forKey: "location")
             sendActivateRequest(location: location)
         }
         
         self.isActive = true
     }
-    
-    @IBAction func onLogoutTap(_ sender: UIButton) {
-        UserDefaults.standard.setValue(nil, forKey: "token")
-        UserDefaults.standard.setValue(nil, forKey: "isActive")
-        UserDefaults.standard.setValue(nil, forKey: "activationDate")
-        
-        UserDefaults.standard.setValue(nil, forKey: "location")
-        Constants.transitionToLoginScreen()
-    }
-    
     
     @IBAction func onHelpTap(_ sender: UIButton) {
         sendHelpRequest()
@@ -154,7 +140,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let params = ["help":1] as Dictionary<String, Int>
 
         var request = URLRequest(url: URL(string: "\(Constants.mainURL)user/help")!)
-        request.httpMethod = "POST"
+        request.httpMethod = "PUT"
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
