@@ -130,7 +130,17 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func onHelpTap(_ sender: UIButton) {
-        sendHelpRequest()
+        let alert = UIAlertController(title: "Alert!", message: "Do you want to request help?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (act) in
+            self.sendHelpRequest()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (act) in
+            
+        }))
+        
+        present(alert, animated: true, completion: nil)
     }
     
     func sendHelpRequest() {
