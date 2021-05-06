@@ -60,8 +60,12 @@ class ProfileViewController: UIViewController {
             do {
                 let decoder = JSONDecoder()
 
+                guard let data = data else {
+                    return
+                }
+                
                 do {
-                    let vaccine = try decoder.decode(Vaccine.self, from: data!)
+                    let vaccine = try decoder.decode(Vaccine.self, from: data)
                     print(vaccine)
                     
                     DispatchQueue.main.async {
@@ -84,7 +88,7 @@ class ProfileViewController: UIViewController {
             return
         }
 
-        var request = URLRequest(url: URL(string: "\(Constants.mainURL)user/test")!)
+        var request = URLRequest(url: URL(string: "\(Constants.mainURL)user/tests")!)
         request.httpMethod = "GET"
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.httpBody = try? JSONSerialization.data(withJSONObject: [:], options: [])
@@ -94,10 +98,14 @@ class ProfileViewController: UIViewController {
         let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
             print(response)
             do {
+                guard let data = data else {
+                    return
+                }
+                
                 let decoder = JSONDecoder()
 
                 do {
-                    let testsList = try decoder.decode([TestModel].self, from: data!)
+                    let testsList = try decoder.decode([TestModel].self, from: data)
                     print(testsList)
                     
                     DispatchQueue.main.async {
